@@ -1,5 +1,5 @@
 const test=  (req,res)=>{
-    res.send("User Api")
+    res.send("UserhshshApi")
 }
 
 module.exports={test}
