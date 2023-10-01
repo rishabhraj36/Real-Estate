@@ -22,7 +22,7 @@ const signup = async(req,res,next)=>{
   
 }
 
-const sigin =async(req,res,next) =>{
+const signin =async(req,res,next) =>{
     const {email,password}=req.body
     try{
          const validUser= await UserModel.findOne({email})
@@ -44,4 +44,4 @@ const sigin =async(req,res,next) =>{
 }
 
 
-module.exports={signup,sigin}
+module.exports={signup,signin}
