@@ -3,11 +3,14 @@ const app=express();
 const{connection}=require("./config/db");
 const Userrouter  = require("./routes/user.routes");
 const Authrouter=require("./routes/auth.routes")
+var cors = require('cors')
+app.use(cors())
+
 const PORT=8080
 
 app.use(express.json());
-app.use("/user",Userrouter);
-app.use("/auth",Authrouter);
+app.use("/api/user",Userrouter);
+app.use("/api/auth",Authrouter);
 
 app.use((err,req,res,next)=>{
     const statusCode=err.statusCode ||500 ;
