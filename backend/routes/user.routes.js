@@ -5,5 +5,5 @@ const router=express.Router()
 
 router.get("/update",test)
 
-router.post('update/:id',verifyToken,updateUser)
+router.post('/update/:id',verifyToken,updateUser)
 module.exports=router
