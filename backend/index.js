@@ -1,5 +1,6 @@
 const express= require("express")
 const app=express();
+const cookieparser=require('cookie-parser')
 const{connection}=require("./config/db");
 const Userrouter  = require("./routes/user.routes");
 const Authrouter=require("./routes/auth.routes")
@@ -9,6 +10,7 @@ app.use(cors())
 const PORT=8080
 
 app.use(express.json());
+app.use(cookieparser());
 app.use("/api/user",Userrouter);
 app.use("/api/auth",Authrouter);
 

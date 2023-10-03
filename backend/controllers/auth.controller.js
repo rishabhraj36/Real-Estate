@@ -1,6 +1,7 @@
 const {UserModel}= require("../models/user.model")
 const bcryptjs=require('bcryptjs')
 const jwt=require('jsonwebtoken')
+const {errorHandler}=require('../utils/error')
 require('dotenv').config()
 
 
