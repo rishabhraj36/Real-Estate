@@ -1,5 +1,6 @@
 const jwt =require('jsonwebtoken')
 require('dotenv').config()
+const {errorHandler}=require('./error')
 
 const verifyToken =(req,res,next)=>{
   const token = req.cookies.access_token;
