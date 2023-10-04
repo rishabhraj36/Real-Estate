@@ -1,22 +1,4 @@
-// import {BroserRouter, Routes, Route} from 'react'
-// import Home from './pages/Home'
-// import About from './pages/About'
-// import Profile from './pages/Profile'
-// import SignIn from './pages/SignIn'
-// import  SignUp  from './pages/SignUp'
 
-// export default function App() {
-//   return( <BroserRouter>
-//   <Routes>
-//     <Route path="/" element={<Home/>}/>
-//     <Route path="/sign-in" element={<SignIn/>}/>
-//     <Route path="/sign-up" element={<SignUp/>}/>
-//     <Route path="/profile" element={<Profile/>}/>
-//     <Route path="/about" element={<About/>}/>
-
-//   </Routes>
-//   </BroserRouter>);
-// }
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
@@ -28,6 +10,7 @@ import Headers from './componets/Headers';
 import PrivateRoute from './componets/PrivateRoute';
 import CreateListing from './pages/CreateListing';
 import UpadateListing from './pages/UpadateListing';
+import Listing from './pages/Listing';
 
 
  const App= () => {
@@ -38,6 +21,7 @@ import UpadateListing from './pages/UpadateListing';
         <Route path='/' element={<Home />} />
         <Route path='/sign-in' element={<SignIn />} />
         <Route path='/sign-up' element={<SignUp />} />
+        <Route path='/listing/:listingId' element={<Listing />} />
         <Route element={<PrivateRoute/>}>
               <Route path='/profile' element={<Profile />} />
               <Route path='/create-listing' element={<CreateListing />} />
