@@ -116,9 +116,8 @@ const Profile=()=> {
         return;
       }
       dispatch(deleteUserSuccess(data));
-    } 
-    catch (error) {
-      console.log(error)
+    } catch (error) {
+      dispatch(deleteUserFailure(error.message)); 
     }
   }
 

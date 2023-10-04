@@ -4,6 +4,7 @@ const cookieparser=require('cookie-parser')
 const{connection}=require("./config/db");
 const Userrouter  = require("./routes/user.routes");
 const Authrouter=require("./routes/auth.routes")
+const Listingrouter=require("./routes/listing.routes")
 var cors = require('cors')
 app.use(cors())
 
@@ -13,6 +14,7 @@ app.use(express.json());
 app.use(cookieparser());
 app.use("/api/user",Userrouter);
 app.use("/api/auth",Authrouter);
+app.use('/api/listing',Listingrouter);
 
 app.use((err,req,res,next)=>{
     const statusCode=err.statusCode ||500 ;
