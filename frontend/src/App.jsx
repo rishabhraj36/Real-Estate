@@ -27,6 +27,8 @@ import Profile from './pages/Profile';
 import Headers from './componets/Headers';
 import PrivateRoute from './componets/PrivateRoute';
 import CreateListing from './pages/CreateListing';
+import UpadateListing from './pages/UpadateListing';
+
 
  const App= () => {
   return (
@@ -39,6 +41,7 @@ import CreateListing from './pages/CreateListing';
         <Route element={<PrivateRoute/>}>
               <Route path='/profile' element={<Profile />} />
               <Route path='/create-listing' element={<CreateListing />} />
+              <Route path='/update-listing/:listingId' element={<UpadateListing />}/>
         </Route>
         <Route path='/about' element={<About />} />
       </Routes>
