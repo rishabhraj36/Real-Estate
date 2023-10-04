@@ -1,6 +1,7 @@
 const bcryptjs= require('bcryptjs')
 const { UserModel } = require('../models/user.model')
 const {errorHandler}=require("../utils/error")
+const {Listing}=require("../models/listing.model")
 
 const test=  (req,res)=>{
     res.send("UserhshshApi")
@@ -47,4 +48,17 @@ const updateUser= async (req,res,next)=>{
     }
   };
 
-module.exports={test,updateUser,deleteUser}
+   const getUserListings = async (req, res, next) => {
+    if (req.user.id === req.params.id) {
+      try {
+        const listings = await Listing.find({ userRef: req.params.id });
+        res.status(200).json(listings);
+      } catch (error) {
+        next(error);
+      }
+    } else {
+      return next(errorHandler(401, 'You can only view your own listings!'));
+    }
+  };
+
+module.exports={test,updateUser,deleteUser,getUserListings}
