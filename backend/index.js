@@ -6,9 +6,12 @@ const Userrouter  = require("./routes/user.routes");
 const Authrouter=require("./routes/auth.routes")
 const Listingrouter=require("./routes/listing.routes")
 var cors = require('cors')
+const path=require('path')
 app.use(cors())
 
-const PORT=8080
+
+const __dirname = path.resolve();
+
 
 app.use(express.json());
 app.use(cookieparser());
@@ -18,6 +21,12 @@ app.use('/api/listing',Listingrouter);
 
 app.get('/', (req,res)=>{
     res.send("base api point")
+})
+
+app.use(express.static(path.join(__dirname, '/frontend/dist')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'frontend', 'dist', 'index.html'));
 })
 
 app.use((err,req,res,next)=>{
@@ -32,7 +41,7 @@ app.use((err,req,res,next)=>{
 
 });
 
-app.listen(PORT, async()=>{
+app.listen(8080, async()=>{
     try{
         await connection
         console.log("connected to db")
