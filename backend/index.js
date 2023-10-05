@@ -16,6 +16,10 @@ app.use("/api/user",Userrouter);
 app.use("/api/auth",Authrouter);
 app.use('/api/listing',Listingrouter);
 
+app.get('/', (req,res)=>{
+    res.send("base api point")
+})
+
 app.use((err,req,res,next)=>{
     const statusCode=err.statusCode ||500 ;
     const message=err.message || 'Internal Server Error';
@@ -24,6 +28,7 @@ app.use((err,req,res,next)=>{
         statusCode,
         message
     });
+   
 
 });
 
