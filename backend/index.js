@@ -1,16 +1,16 @@
 const express= require("express")
-const app=express();
 const cookieparser=require('cookie-parser')
 const{connection}=require("./config/db");
 const Userrouter  = require("./routes/user.routes");
 const Authrouter=require("./routes/auth.routes")
 const Listingrouter=require("./routes/listing.routes")
-var cors = require('cors')
 const path=require('path')
-app.use(cors())
+// var cors = require('cors')
+// app.use(cors())
 
 
 const __dirname = path.resolve();
+const app=express();
 
 
 app.use(express.json());
@@ -29,17 +29,7 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'frontend', 'dist', 'index.html'));
 })
 
-app.use((err,req,res,next)=>{
-    const statusCode=err.statusCode ||500 ;
-    const message=err.message || 'Internal Server Error';
-    return res.status(statusCode).json({
-        success: false,
-        statusCode,
-        message
-    });
-   
 
-});
 
 app.listen(8080, async()=>{
     try{
@@ -51,3 +41,16 @@ app.listen(8080, async()=>{
     }
     console.log(`listening on PORT 8080`
     )})
+
+
+    app.use((err,req,res,next)=>{
+        const statusCode=err.statusCode ||500 ;
+        const message=err.message || 'Internal Server Error';
+        return res.status(statusCode).json({
+            success: false,
+            statusCode,
+            message
+        });
+       
+    
+    });
