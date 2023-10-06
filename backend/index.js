@@ -19,9 +19,9 @@ app.use("/api/user",Userrouter);
 app.use("/api/auth",Authrouter);
 app.use('/api/listing',Listingrouter);
 
-app.get('/', (req,res)=>{
-    res.send("base api point")
-})
+// app.get('/', (req,res)=>{
+//     res.send("base api point")
+// })
 
 app.use(express.static(path.join(__dirname, '/frontend/dist')));
 
