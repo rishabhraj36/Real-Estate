@@ -23,10 +23,10 @@ app.use('/api/listing',Listingrouter);
 //     res.send("base api point")
 // })
 
-app.use(express.static(path.join(__dirname, '/frontend/dist/assets')));
+app.use(express.static(path.join(__dirname, '/frontend/dist')));
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'frontend', 'dist', 'assets', 'index.html'));
+  res.sendFile(path.join(__dirname, 'frontend', 'dist', 'index.html'));
 })
 
 
