@@ -9,7 +9,7 @@ const path=require('path')
 // app.use(cors())
 
 
-const __dirname = path.resolve();
+// const __dirname = path.resolve();
 const app=express();
 
 
